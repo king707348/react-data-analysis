@@ -1,7 +1,5 @@
-
 import type { Metadata } from 'next'
-
-import Page from "./dashboard/account/page"
+import Layout from "./dashboard/page"
 
 export const metadata: Metadata = {
   title: 'My Page Title',
@@ -9,9 +7,10 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
+
   return (
     <>
-      <Page />
+      <Layout />
     </>
   );
 }
