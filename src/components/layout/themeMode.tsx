@@ -11,7 +11,7 @@ export function ColorMode() {
     }
 
     return (
-        <div onClick={changeTheme} className="my-auto">
+        <div onClick={changeTheme} className="py-2">
             {theme === "dark" ? <Moon /> : <Sun />}
         </div>
     )
