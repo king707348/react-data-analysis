@@ -7,40 +7,206 @@ export async function POST() {
             age: 16,
             height: 175,
             weight: 90,
-            fit_activity: [
+            totalIncome: 500000,
+            totalExpense: 15120,
+            reserve: {
+                location: "",
+                note: "",
+                date: "",
+                docter: ""
+            },
+            date_event: [
                 {
-                    steps: {
-                        date: "",
-                        count: 0
+                    date: "",
+                    fit_activity: [
+                        {
+                            steps: {
+                                date: "",
+                                count: 0
+                            },
+                            blood_pressure: {
+                                date: "",
+                                systolic: 126,
+                                diastolic: 75
+                            }
+                        }
+                    ],
+                    month_amount: {
+                        income: [
+                            {
+                                title: "salary",
+                                amount: 50000,
+                                type: "income",
+                                category: "salary",
+                                date: "",
+                                note: ""
+                            }
+                        ],
+                        expenses: [
+                            {
+                                title: "",
+                                amount: 10000,
+                                type: "expenses",
+                                category: "lunch",
+                                date: "",
+                                note: ""
+                            }
+                        ]
+                    }
+                },
+                {
+                    date: "",
+                    fit_activity: [
+                        {
+                            steps: {
+                                date: "",
+                                count: 0
+                            },
+                            blood_pressure: {
+                                date: "",
+                                systolic: 126,
+                                diastolic: 75
+                            }
+                        }
+                    ],
+                    month_amount: {
+                        income: [
+                            {
+                                title: "salary",
+                                amount: 50000,
+                                type: "income",
+                                category: "salary",
+                                date: "",
+                                note: ""
+                            }
+                        ],
+                        expenses: [
+                            {
+                                title: "",
+                                amount: 10000,
+                                type: "expenses",
+                                category: "lunch",
+                                date: "",
+                                note: ""
+                            }
+                        ]
+                    }
+                },
+                {
+                    date: "",
+                    fit_activity: [
+                        {
+                            steps: {
+                                date: "",
+                                count: 0
+                            },
+                            blood_pressure: {
+                                date: "",
+                                systolic: 126,
+                                diastolic: 75
+                            }
+                        }
+                    ],
+                    month_amount: {
+                        income: [
+                            {
+                                title: "salary",
+                                amount: 50000,
+                                type: "income",
+                                category: "salary",
+                                date: "",
+                                note: ""
+                            }
+                        ],
+                        expenses: [
+                            {
+                                title: "",
+                                amount: 10000,
+                                type: "expenses",
+                                category: "lunch",
+                                date: "",
+                                note: ""
+                            }
+                        ]
+                    }
+                },
+                {
+                    date: "",
+                    fit_activity: [
+                        {
+                            steps: {
+                                date: "",
+                                count: 0
+                            },
+                            blood_pressure: {
+                                date: "",
+                                systolic: 126,
+                                diastolic: 75
+                            }
+                        }
+                    ],
+                    month_amount: {
+                        income: [
+                            {
+                                title: "salary",
+                                amount: 50000,
+                                type: "income",
+                                category: "salary",
+                                date: "",
+                                note: ""
+                            }
+                        ],
+                        expenses: [
+                            {
+                                title: "",
+                                amount: 10000,
+                                type: "expenses",
+                                category: "lunch",
+                                date: "",
+                                note: ""
+                            }
+                        ]
+                    }
+                },
+                {
+                    date: "",
+                    fit_activity: [
+                        {
+                            steps: {
+                                date: "",
+                                count: 0
+                            },
+                            blood_pressure: {
+                                date: "",
+                                systolic: 126,
+                                diastolic: 75
+                            }
+                        }
+                    ],
+                    month_amount: {
+                        income: [
+                            {
+                                title: "salary",
+                                amount: 10000,
+                                type: "income",
+                                category: "salary",
+                                date: "",
+                                note: ""
+                            }
+                        ],
+                        expenses: [
+                            {
+                                title: "",
+                                amount: 10000,
+                                type: "expenses",
+                                category: "lunch",
+                                date: "",
+                                note: ""
+                            }
+                        ]
                     }
                 }
-            ],
-            month_amount: {
-                totalIncome: 50000,
-                totalExpense: 15120,
-                income: [
-                    {
-                        id: 1,
-                        title: "",
-                        amount: 10000,
-                        type: "income",
-                        category: "salary",
-                        date: "",
-                        note: ""
-                    }
-                ],
-                expenses: [
-                    {
-                        id: 1,
-                        title: "",
-                        amount: 10000,
-                        type: "expenses",
-                        category: "lunch",
-                        date: "",
-                        note: ""
-                    }
-                ]
-            }
+            ]
         }
     ]
 
