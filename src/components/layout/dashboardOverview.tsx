@@ -1,5 +1,7 @@
 'use client'
 
+import ChartView from "./chartview"
+
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardAction } from "../ui/card"
 
 export default function DashboardOverview() {
@@ -43,6 +45,10 @@ export default function DashboardOverview() {
                         2026/01/07
                     </CardContent>
                 </Card>
+            </div>
+
+            <div>
+                <ChartView />
             </div>
         </div>
     )
