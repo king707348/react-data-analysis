@@ -59,8 +59,8 @@ export async function GET() {
                                 count: 17548
                             },
                             blood_pressure: {
-                                systolic: 126,
-                                diastolic: 75
+                                systolic: 141,
+                                diastolic: 86
                             }
                         }
                     ],
@@ -93,8 +93,8 @@ export async function GET() {
                                 count: 19876
                             },
                             blood_pressure: {
-                                systolic: 126,
-                                diastolic: 75
+                                systolic: 136,
+                                diastolic: 78
                             }
                         }
                     ],
@@ -127,8 +127,8 @@ export async function GET() {
                                 count: 24356
                             },
                             blood_pressure: {
-                                systolic: 126,
-                                diastolic: 75
+                                systolic: 128,
+                                diastolic: 82
                             }
                         }
                     ],
@@ -161,8 +161,8 @@ export async function GET() {
                                 count: 16345
                             },
                             blood_pressure: {
-                                systolic: 126,
-                                diastolic: 75
+                                systolic: 133,
+                                diastolic: 79
                             }
                         }
                     ],

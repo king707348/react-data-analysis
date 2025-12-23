@@ -23,7 +23,7 @@ export interface DayEvent {
     date: string
     fit_activity: {
         steps: StepData
-        blood_pressure: BloodPressure[]
+        blood_pressure: BloodPressure
     }[]
     month_amount: {
         income: Income[]

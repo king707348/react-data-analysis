@@ -47,6 +47,9 @@ export default function AssetsChart() {
         tooltip: {
             trigger: 'axis'
         },
+        legend: {
+            data: ['Income', 'Expenses']
+        },
         xAxis: {
             type: 'category',
             data: xAxis_data

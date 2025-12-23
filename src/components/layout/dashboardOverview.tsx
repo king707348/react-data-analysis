@@ -12,7 +12,7 @@ export default function DashboardOverview() {
                 <Card className="flex-1 min-w-40 m-1">
                     <CardHeader className="px-2" >
                         <CardTitle>總資產</CardTitle>
-                        <CardAction>test</CardAction>
+                        <CardAction className="text-[.75rem]">Assets</CardAction>
                     </CardHeader>
                     <CardContent className="text-1 sm:text-2 md:text-3xl lg:text-4xl px-2 overflow-y-hidden">
                         10000000<small>/usd</small>
@@ -21,7 +21,7 @@ export default function DashboardOverview() {
                 <Card className="flex-1 min-w-40 m-1">
                     <CardHeader className="px-2" >
                         <CardTitle>步數</CardTitle>
-                        <CardAction>steps</CardAction>
+                        <CardAction className="text-[.75rem]">steps</CardAction>
                     </CardHeader>
                     <CardContent className="text-1 md:text-3xl lg:text-4xl px-2 overflow-y-hidden">
                         12000<small>/steps</small>
@@ -30,7 +30,7 @@ export default function DashboardOverview() {
                 <Card className="flex-1 min-w-40 m-1">
                     <CardHeader className="px-2" >
                         <CardTitle>血壓</CardTitle>
-                        <CardAction>steps</CardAction>
+                        <CardAction className="text-[.75rem]">Blood Pressure</CardAction>
                     </CardHeader>
                     <CardContent className="text-1 md:text-3xl lg:text-4xl px-2 overflow-y-hidden">
                         130/78
@@ -39,7 +39,7 @@ export default function DashboardOverview() {
                 <Card className="flex-1 min-w-40 m-1">
                     <CardHeader className="px-2" >
                         <CardTitle>回診預約</CardTitle>
-                        <CardAction>醫院/診所</CardAction>
+                        <CardAction className="text-[.75rem]">提前一周抽血</CardAction>
                     </CardHeader>
                     <CardContent className="text-1 md:text-3xl lg:text-4xl px-2 overflow-y-hidden">
                         2026/01/07
