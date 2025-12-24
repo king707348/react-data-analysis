@@ -1,7 +1,8 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import ReactECharts from 'echarts-for-react';
+import { useTheme } from 'next-themes';
 
 import { BloodPressure, DayEvent, InfoData } from "@/types/index";
 
@@ -18,6 +19,9 @@ const fetchData = async (setData: React.Dispatch<React.SetStateAction<InfoData[]
 }
 
 export default function BloodPressureChart() {
+    const { resolvedTheme } = useTheme()
+
+    const themeColor = resolvedTheme === 'dark' ? '#ffffff' : '#235894'
     const [data, setData] = useState<InfoData[]>([])
     let admin_title: string = "ADMIN BLOOD PRESSURE CHART"
     let xAxis_data: string[] = []
@@ -42,20 +46,32 @@ export default function BloodPressureChart() {
     const option = {
         title: {
             text: admin_title,
-            left: 'center'
+            left: 'center',
+            textStyle: {
+                color: themeColor
+            }
         },
         tooltip: {
             trigger: 'axis'
         },
         legend: {
-            data: ['Systolic', 'Diastolic']
+            data: ['Systolic', 'Diastolic'],
+            textStyle: {
+                color: themeColor
+            }
         },
         xAxis: {
             type: 'category',
-            data: xAxis_data
+            data: xAxis_data,
+            axisLabel: {
+                color: themeColor
+            }
         },
         yAxis: {
             type: 'value',
+            axisLabel: {
+                color: themeColor
+            }
         },
         series: [
             {

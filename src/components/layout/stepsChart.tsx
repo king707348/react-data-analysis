@@ -2,6 +2,8 @@
 
 import React, {useState, useEffect} from "react";
 import ReactECharts from 'echarts-for-react';
+import { observer } from "mobx-react-lite";
+import { dataStore } from "@/stores/index";
 
 import { InfoData, DayEvent, StepData } from "@/types/index";
 
@@ -17,14 +19,19 @@ const fetchData = async (setData: React.Dispatch<React.SetStateAction<InfoData[]
     }
 }
 
-export default function StepsChart() {
+const StepsChart = observer(() => {
     const [data, setData] = useState<InfoData[]>([])
     let admin_title: string = "ADMIN INCOME CHART"
     let xAxis_data: string[] = []
     let series_data_Step: number[] = []
 
     useEffect(() => {
-        fetchData(setData)
+        // fetchData(setData)
+        const loadData = async () => {
+            const result = await dataStore.fetchData()
+            if (result) setData(result)
+        }
+        loadData()
     }, [])
 
     if(data.length > 0){
@@ -82,4 +89,6 @@ export default function StepsChart() {
             <ReactECharts option={option} />
         </>
     )
-}
+})
+
+export default StepsChart

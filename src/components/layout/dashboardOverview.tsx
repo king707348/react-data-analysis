@@ -2,9 +2,36 @@
 
 import ChartView from "./chartview"
 
-import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardAction } from "../ui/card"
+import React, { useState, useEffect } from "react"
+import { observer } from "mobx-react-lite"
+import { dataStore } from "@/stores/index"
+import { Card, CardHeader, CardTitle, CardContent, CardAction } from "../ui/card"
 
-export default function DashboardOverview() {
+import { InfoData, DayEvent } from "@/types/index";
+
+export default observer(function DashboardOverview() {
+    const [data, setData] = useState<InfoData | null>(null)
+    const [loading, setLoading] = useState(true)
+
+    const loadData = async () => {
+        const result = await dataStore.fetchData()
+        if (result){
+            setData(result[0])
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        loadData()
+    }, [])
+
+    if(!loading) {
+        console.log("dashboard overview data:", data)
+        const everyMonth = data?.date_event.map((event: DayEvent) => event.month_amount.income[0].amount)
+        const totalAssets = data?.prevent_assets
+        console.log(everyMonth, totalAssets)
+    }
+
 
     return (
         <div className="w-full">
@@ -52,4 +79,4 @@ export default function DashboardOverview() {
             </div>
         </div>
     )
-}
+})

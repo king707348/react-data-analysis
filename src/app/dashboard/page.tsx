@@ -3,8 +3,7 @@
 import Sidebar from "@/components/layout/sidebar"
 import DashboardOverview from "@/components/layout/dashboardOverview"
 
-export default function Layout(){
-
+const Layout = () => {
     return (
         <div className="flex">
             <Sidebar />
@@ -12,3 +11,4 @@ export default function Layout(){
         </div>
     )
 }
+export default Layout
