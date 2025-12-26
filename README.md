@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# react-data-analysis
 
-## Getting Started
+雙語簡介：這個專案示範一個使用 Next.js + React（TypeScript）的資料儀表板範例，包含 Stock API proxy（mock）、幾個 demo charts（使用 ECharts）與 MobX 範例。
 
-First, run the development server:
+Brief (EN): A small Next.js dashboard demo with mock stock data API, MobX store setup and ECharts visualizations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 主要功能 / Key Features ✅
+
+- Stock data endpoint: `/api/stock?symbol=...`（目前為 mock 回傳；尚未使用 Finnhub）
+- Mock user & health `GET /api/info` 返回示範資料
+- Dashboard 檢視：`/dashboard` 下含多個 chart 與範例元件（`src/components/layout`）
+- 使用 ECharts 作為資料視覺化、並使用 `next-themes` 支援主題切換
+- 使用 MobX（`src/stores`）做簡單狀態管理範例
+
+---
+
+## 快速開始（開發）
+
+先安裝相依：
+
+```powershell
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+啟動開發伺服器（預設 port: 3003）：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```powershell
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+打開瀏覽器並前往 `http://localhost:3003`。
 
-## Learn More
+常用指令：
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run build` - 建置
+- `npm run start` - 以 production 模式啟動
+- `npm run lint` - 執行 ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 環境變數 / Environment
 
-## Deploy on Vercel
+建議在專案根目錄建立 `.env.local`（git 忽略）並加入以下變數：
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+你也可以先複製專案根目錄的 `.env.example`：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+cp .env.example .env.local
+```
+
+- `FINNHUB_KEY` - （選用）若要啟用 Finnhub 實際資料代理（目前尚未使用）
+
+範例 `.env.local`：
+
+```dotenv
+FINNHUB_KEY=your_finnhub_key_here
+FITBIT_CLIENT_ID=your_fitbit_client_id
+FITBIT_CLIENT_SECRET=your_fitbit_client_secret
+FITBIT_REDIRECT_URI=http://localhost:3003/api/fitbit/callback
+```
+
+---
+
+## API 端點（重點）
+
+- `GET /api/info` - 回傳 mock 使用者與活動資料
+- `GET /api/stock?symbol=SYMBOL` - 目前回傳 mock stock 資料；可改為呼叫 Finnhub
+
+---
+
+## 檔案結構（重點）
+
+- `src/app/` - Next.js app 路由與頁面
+- `src/components/` - 可重用 UI 與 layout 元件（charts、sidebar、theme toggle）
+- `src/app/api/` - API route（fitbit、stock、info）
+- `src/stores/` - MobX store 範例
+- `src/components/layout/stepsChart.tsx`、`chartview.tsx` 等為 ECharts 範例
+
+---
+
+## 開發提示 / Notes
+
+- 若要測試 Fitbit OAuth：先在 Fitbit 開發者控制台註冊 App，設定回呼 URL，並把 `FITBIT_CLIENT_ID`、`FITBIT_CLIENT_SECRET`、`FITBIT_REDIRECT_URI` 設到 `.env.local`。
+- 若要改為使用 Finnhub：將 `FINNHUB_KEY` 設到環境中，並把 `/api/stock` 實作改為呼叫 Finnhub API（目前為 mock 回傳）。
+- 若遇到 port 被占用，可以透過修改 `package.json` 的 `dev` script (`-p 3003`) 改成其他 port，或先關閉占用程序。
+
+---
+
+## 貢獻
+
+歡迎 PR 與 issue。請先執行 `npm run lint` 並保持 commit message 清楚。
+
+---
+
