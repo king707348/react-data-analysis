@@ -18,9 +18,9 @@ const Route: Route[] = [
         icon: "dashboard"
     },
     {
-        label: "Acitivity",
+        label: "Activity",
         href: "/",
-        icon: "Acitivity"
+        icon: "Activity"
     },
     {
         label: "Account",

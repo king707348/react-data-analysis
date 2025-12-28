@@ -29,7 +29,7 @@ export default function AssetsChart() {
     }, [])
 
     if(data.length > 0){
-        admin_title = `${data[0].name.toLocaleUpperCase()}'S STEPS CHART`
+        admin_title = `${data[0].name.toLocaleUpperCase()}'S ASSETS CHART`
         xAxis_data = data[0].date_event.map(event => event.date)
         series_data_Income = data[0].date_event.map(event => {
             return event.month_amount.income[0].amount
