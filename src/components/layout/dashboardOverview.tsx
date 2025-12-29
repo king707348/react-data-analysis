@@ -10,10 +10,12 @@ import { Card, CardHeader, CardTitle, CardContent, CardAction } from "../ui/card
 import { ColumnDef } from "@tanstack/react-table"
 
 import { InfoData, DayEvent } from "@/types/index";
+import { useTranslations } from "next-intl"
 
 export default observer(function DashboardOverview() {
     const [data, setData] = useState<InfoData | null>(null)
     const [loading, setLoading] = useState(true)
+    const t = useTranslations();
 
     type RecordDate = {
         id: number;
@@ -22,18 +24,18 @@ export default observer(function DashboardOverview() {
     }
 
     const columns:ColumnDef<RecordDate>[] = [
-            {
-                accessorKey: "id",
-                header: "ID",
-            },
-            {
-                accessorKey: "status",
-                header: "Status",
-            },
-            {
-                accessorKey: "event",
-                header: "Event",
-            }
+        {
+            accessorKey: "id",
+            header: "ID",
+        },
+        {
+            accessorKey: "status",
+            header: "Status",
+        },
+        {
+            accessorKey: "event",
+            header: "Event",
+        }
     ];
 
     const recordDate = [
@@ -72,7 +74,6 @@ export default observer(function DashboardOverview() {
         console.log(everyMonth, totalAssets)
     }
 
-
     return (
         <div className="w-full m-1">
             <div className="card-overview flex flex-wrap ">
@@ -87,6 +88,8 @@ export default observer(function DashboardOverview() {
                 </Card>
                 <Card className="flex-1 min-w-40 m-1">
                     <CardHeader className="px-2" >
+                        {t("content.uploadData", {name: "ann"})}
+                        
                         <CardTitle>步數</CardTitle>
                         <CardAction className="text-[.75rem]">steps</CardAction>
                     </CardHeader>

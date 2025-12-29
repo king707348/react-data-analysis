@@ -1,0 +1,15 @@
+{
+    "title": "Data Analysis Dashboard",
+    "welcomeMessage": "Welcome to the Data Analysis Dashboard. Here you can visualize and analyze your data effectively.",
+    "Route": {
+        "Dashboard": "Dashboard",
+        "Activity": "Activity",
+        "Account": "Account",
+        "Settings": "Settings"
+    },
+    "content": {
+        "uploadData": "Upload your data files to get started.{name}",
+        "selectChartType": "Select the type of chart you want to create.",
+        "analyzeData": "Use various tools to analyze your data."
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Data Analysis 儀表板",
+    "welcomeMessage": "Welcome to the Data Analysis Dashboard. Here you can visualize and analyze your data effectively.",
+    "Route": {
+        "Dashboard": "儀表板",
+        "Activity": "活動",
+        "Account": "帳戶",
+        "Settings": "設定"
+    },
+    "content": {
+        "uploadData": "上傳您的資料檔案即可開始。",
+        "selectChartType": "選擇您想要創建的圖表類型。",
+        "analyzeData": "使用各種工具來分析您的數據。"
+    }
+}
