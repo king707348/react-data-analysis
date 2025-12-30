@@ -87,3 +87,7 @@ FITBIT_REDIRECT_URI=http://localhost:3003/api/fitbit/callback
 - 若遇到 port 被占用，可以透過修改 `package.json` 的 `dev` script (`-p 3003`) 改成其他 port，或先關閉占用程序。
 
 ---
+
+## 圖片展示 / Image Display
+
+![圖片2](/圖片%202.png)
