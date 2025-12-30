@@ -1,6 +1,9 @@
+'use client'
+
 import { LanguageMode } from "@/components/layout/languageMode"
 import { ColorMode } from "@/components/layout/themeMode"
 
+import { useLocale } from 'next-intl'
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import { useTranslations, useMessages } from "next-intl"
@@ -15,13 +18,14 @@ export default function Sidebar() {
     const tt = useTranslations("")
     const t = useTranslations("Route")
     const messages = useMessages()
+    const locale = useLocale()
     console.log("Sidebar messages:", messages);
     const keys = Object.keys(messages.Route)
 
     const Route: Route[] = [
         {
             id: "Dashboard",
-            href: "/dashboard",
+            href: `/dashboard`,
             icon: "dashboard"
         },
         {
@@ -31,12 +35,12 @@ export default function Sidebar() {
         },
         {
             id: "Account",
-            href: "/dashboard/account",
+            href: `/${locale}/dashboard/account`,
             icon: "account"
         },
         {
             id: "Settings",
-            href: "/dashboard/settings",
+            href: `/${locale}/dashboard/settings`,
             icon: "settings"
         }
     ]
@@ -48,7 +52,7 @@ export default function Sidebar() {
     ))
 
     return (
-        <aside className="flex flex-col min-w-[12rem] w-[20%] h-[auto] p-2 bg-blue-500">
+        <aside className="flex flex-col min-w-[12rem] w-[20%] min-h-[100vh] h-[auto] p-2 bg-blue-500">
             <div className="pb-3 border-b-1">{tt("title")} </div>
             <ul className="border-b-1">
                 {itemRoute}
@@ -58,7 +62,7 @@ export default function Sidebar() {
                     <LanguageMode />
                     <ColorMode />
                 </div>
-                <Button className="my-2 w-fit" >{t("logout")}</Button>
+                <Button className="my-2 w-fit" >{tt("logout")}</Button>
             </div>
         </aside>
     )

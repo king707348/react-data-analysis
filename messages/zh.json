@@ -5,9 +5,9 @@
         "Dashboard": "儀表板",
         "Activity": "活動",
         "Account": "帳戶",
-        "Settings": "設定",
-        "logout": "登出"
+        "Settings": "設定"
     },
+    "logout": "登出",
     "cards": {
         "Assets": {
             "name": "總資產",

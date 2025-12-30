@@ -5,9 +5,9 @@
         "Dashboard": "Dashboard",
         "Activity": "Activity",
         "Account": "Account",
-        "Settings": "Settings",
-        "logout": "Logout"
+        "Settings": "Settings"
     },
+    "logout": "Logout",
     "cards": {
         "Assets": {
             "name": "Total Assets",

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Layout from "../../components/dashboard/page"
+import Layout from "./dashboard/page"
 
 export const metadata: Metadata = {
   title: 'My Page Title',
