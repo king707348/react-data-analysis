@@ -1,4 +1,7 @@
+'use client';
+
 import { useRouter, usePathname } from '@/i18n/routing';
+import { useLocale } from 'next-intl'
 import {
   Select,
   SelectContent,
@@ -6,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { useParams } from 'next/navigation';
 
 const languages = [
     {
@@ -19,32 +21,31 @@ const languages = [
 ]
 
 export function LanguageMode() {
-    const router = useRouter();
-    const pathname = usePathname();
-    const params = useParams();
-    const currentLocale = params.locale as string;
+    const router = useRouter()
+    const pathname = usePathname()
+    const locale = useLocale()
 
     const handleLocaleChange = (newLocale: string) => {
-        console.log(newLocale);
         router.replace(pathname, { locale: newLocale })
-    };
-
-    const currentLanguage = languages.find(lang => lang.value === currentLocale);
+    }
 
     return (
-        <Select value={currentLocale} onValueChange={handleLocaleChange}>
-            <SelectTrigger className="w-[180px] text-black" >
-                <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-                {
-                    languages.map((lang) => (
-                        <SelectItem key={lang.value} value={lang.value}>
-                            {lang.label}
-                        </SelectItem>
-                    ))
-                }
-            </SelectContent>
-        </Select>
+        <>
+            <Select value={locale} onValueChange={handleLocaleChange}>
+                <SelectTrigger className="text-black" >
+                    <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                    {
+                        languages.map((lang) => (
+                            <SelectItem key={lang.value} value={lang.value}>
+                                {lang.label}
+                            </SelectItem>
+                        ))
+                    }
+                </SelectContent>
+            </Select>
+        </>
+
     )
 }
