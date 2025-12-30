@@ -1,12 +1,32 @@
 'use client'
 
+import React, {useState, useEffect} from "react";
+import { observer } from "mobx-react-lite";
+import { dataStore } from "@/stores/index";
+import { useTheme } from 'next-themes';
+
 import AssetsChart from "@/components/layout/assetsChart"
 import StepsChart from "@/components/layout/stepsChart"
 import BloodPressureChart from "@/components/layout/bloodPressureChart"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-export default function ChartView() {
+import { InfoData } from "@/types/index";
+
+export const ChartView = observer(() => {
+    const { resolvedTheme } = useTheme()
+    
+    const themeColor = resolvedTheme === 'dark' ? '#ffffff' : '#235894'
+    const [data, setData] = useState<InfoData[]>([])
+
+    useEffect(() => {
+        const loadData = async () => {
+            const result = await dataStore.fetchData()
+            if (result) setData(result)
+        }
+        loadData()
+    }, [])
+
     return (
         <>
             <Tabs defaultValue="assets" className="w-full">
@@ -16,15 +36,15 @@ export default function ChartView() {
                     <TabsTrigger value="bloodPressure">Blood Pressure</TabsTrigger>
                 </TabsList>
                 <TabsContent value="assets">
-                    <AssetsChart />
+                    <AssetsChart useThemeColor={themeColor} useData={data} />
                 </TabsContent>
                 <TabsContent value="steps">
-                    <StepsChart />
+                    <StepsChart useThemeColor={themeColor} useData={data} />
                 </TabsContent>
                 <TabsContent value="bloodPressure">
-                    <BloodPressureChart />
+                    <BloodPressureChart useThemeColor={themeColor} useData={data} />
                 </TabsContent>
             </Tabs> 
         </>
     )
-}
+})

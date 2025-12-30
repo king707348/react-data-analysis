@@ -1,38 +1,18 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
 import ReactECharts from 'echarts-for-react';
-import { observer } from "mobx-react-lite";
-import { dataStore } from "@/stores/index";
 
 import { InfoData, DayEvent, StepData } from "@/types/index";
 
-const fetchData = async (setData: React.Dispatch<React.SetStateAction<InfoData[]>>) => {
-    try {
-        const response = await fetch('/api/info')
-        const jsonData = await response.json()
-
-        setData(jsonData)
-        console.log(jsonData[0])
-    }catch (err) {
-        console.error("err", err)
-    }
-}
-
-const StepsChart = observer(() => {
-    const [data, setData] = useState<InfoData[]>([])
+export default function StepsChart(
+    {useThemeColor, useData}:
+    {useThemeColor:string, useData:InfoData[]}
+) {
+    const data = useData
+    const ThemeColor = useThemeColor
     let admin_title: string = "ADMIN INCOME CHART"
     let xAxis_data: string[] = []
     let series_data_Step: number[] = []
-
-    useEffect(() => {
-        // fetchData(setData)
-        const loadData = async () => {
-            const result = await dataStore.fetchData()
-            if (result) setData(result)
-        }
-        loadData()
-    }, [])
 
     if(data.length > 0){
         admin_title = `${data[0].name.toLocaleUpperCase()}'S STEPS CHART`
@@ -46,7 +26,10 @@ const StepsChart = observer(() => {
     const option = {
         title: {
             text: admin_title,
-            left: 'center'
+            left: 'center',
+            textStyle: {
+                color: ThemeColor
+            }
         },
         tooltip: {
             trigger: 'axis',
@@ -66,12 +49,18 @@ const StepsChart = observer(() => {
                 data: xAxis_data,
                 axisTick: {
                     alignWithLabel: true
+                },
+                axisLabel: {
+                    color: ThemeColor
                 }
             }
         ],
         yAxis: [
             {
-                type: 'value'
+                type: 'value',
+                axisLabel: {
+                    color: ThemeColor
+                }
             }
         ],
         series: [
@@ -89,6 +78,4 @@ const StepsChart = observer(() => {
             <ReactECharts option={option} />
         </>
     )
-})
-
-export default StepsChart
+}

@@ -32,7 +32,7 @@ export function LanguageMode() {
     return (
         <>
             <Select value={locale} onValueChange={handleLocaleChange}>
-                <SelectTrigger className="text-black" >
+                <SelectTrigger className="text-black [&_svg]:!text-black" >
                     <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

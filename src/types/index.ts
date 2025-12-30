@@ -35,9 +35,9 @@ export interface InfoData {
     age: number
     height: number
     weight: number
-    prevent_assets: number
-    totalIncome: number
-    totalExpense: number
+    prevent_assets: number | 0
+    totalIncome: number | 0
+    totalExpense: number | 0
     reservation: {
         location: string
         note: string
@@ -45,4 +45,17 @@ export interface InfoData {
         docter: string
     }
     date_event: DayEvent[]
+}
+
+export type RecordDate = {
+    id: number;
+    status: string;
+    event: string;
+}
+
+export type CardData = {
+    title: string;
+    action: string;
+    unit: string;
+    getData: number | string;
 }

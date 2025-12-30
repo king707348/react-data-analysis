@@ -5,9 +5,33 @@
         "Dashboard": "儀表板",
         "Activity": "活動",
         "Account": "帳戶",
-        "Settings": "設定"
+        "Settings": "設定",
+        "logout": "登出"
+    },
+    "cards": {
+        "Assets": {
+            "name": "總資產",
+            "action": "Assets",
+            "unit": "USD"
+        },
+        "Steps": {
+            "name": "每日步數",
+            "action": "steps",
+            "unit": "步數"
+        },
+        "BloodPressure": {
+            "name": "血壓",
+            "action": "Blood Pressure",
+            "unit": ""
+        },
+        "Aappointment": {
+            "name": "預約回診",
+            "action": "提前一周抽血",
+            "unit": ""
+        }
     },
     "content": {
+        "bloodTest": "抽血檢查 {hospital}",
         "uploadData": "上傳您的資料檔案即可開始。",
         "selectChartType": "選擇您想要創建的圖表類型。",
         "analyzeData": "使用各種工具來分析您的數據。"

@@ -1,32 +1,20 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
 import ReactECharts from 'echarts-for-react';
 
 import { StepData, Income, Expenses, DayEvent, InfoData } from "@/types/index";
 
-const fetchData = async (setData: React.Dispatch<React.SetStateAction<InfoData[]>>) => {
-    try {
-        const response = await fetch('/api/info')
-        const jsonData = await response.json()
-
-        setData(jsonData)
-        console.log(jsonData[0])
-    }catch (err) {
-        console.error("err", err)
-    }
-}
-
-export default function AssetsChart() {
-    const [data, setData] = useState<InfoData[]>([])
+export default function AssetsChart(
+    {useThemeColor, useData}:
+    {useThemeColor:string, useData:InfoData[]}
+) {
+    const data = useData
+    const ThemeColor = useThemeColor
     let admin_title: string = "ADMIN INCOME CHART"
     let xAxis_data: string[] = []
     let series_data_Income: number[] = []
     let series_data_Expenses: number[] = []
 
-    useEffect(() => {
-        fetchData(setData)
-    }, [])
 
     if(data.length > 0){
         admin_title = `${data[0].name.toLocaleUpperCase()}'S ASSETS CHART`
@@ -42,20 +30,32 @@ export default function AssetsChart() {
     const option = {
         title: {
             text: admin_title,
-            left: 'center'
+            left: 'center',
+            textStyle: {
+                color: ThemeColor
+            }
         },
         tooltip: {
             trigger: 'axis'
         },
         legend: {
-            data: ['Income', 'Expenses']
+            data: ['Income', 'Expenses'],
+                        textStyle: {
+                color: ThemeColor
+            }
         },
         xAxis: {
             type: 'category',
-            data: xAxis_data
+            data: xAxis_data,
+            axisLabel: {
+                color: ThemeColor
+            }
         },
         yAxis: {
-            type: 'value'
+            type: 'value',
+            axisLabel: {
+                color: ThemeColor
+            }
         },
         series: [
             {

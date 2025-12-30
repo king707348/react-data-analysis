@@ -5,9 +5,33 @@
         "Dashboard": "Dashboard",
         "Activity": "Activity",
         "Account": "Account",
-        "Settings": "Settings"
+        "Settings": "Settings",
+        "logout": "Logout"
+    },
+    "cards": {
+        "Assets": {
+            "name": "Total Assets",
+            "action": "",
+            "unit": "USD"
+        },
+        "Steps": {
+            "name": "Daily steps",
+            "action": "",
+            "unit": "steps"
+        },
+        "BloodPressure": {
+            "name": "Blood Pressure",
+            "action": "",
+            "unit": ""
+        },
+        "Aappointment": {
+            "name": "Follow-up appointment",
+            "action": "",
+            "unit": ""
+        }
     },
     "content": {
+        "bloodTest": "Blood Test {hospital}",
         "uploadData": "Upload your data files to get started.{name}",
         "selectChartType": "Select the type of chart you want to create.",
         "analyzeData": "Use various tools to analyze your data."

@@ -1,12 +1,12 @@
 "use client"
 
+import React, { useState } from "react"
 import {
     ColumnDef,
     flexRender,
     getCoreRowModel,
     useReactTable,
 } from "@tanstack/react-table"
-
 import {
     Table,
     TableBody,
@@ -15,8 +15,6 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-
-import React, { useState } from "react"
 import { Calendar } from "@/components/ui/calendar"
 
 interface DataTableProps<TData, TValue> {
@@ -36,8 +34,8 @@ export function DataTable<TData, TValue>({
     const [date, setDate] = useState<Date | undefined>(new Date())
 
     return (
-        <div className="grid grid-cols-4 gap-4 overflow-hidden m-1">
-            <div className="col-span-3 rounded-md border">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 overflow-hidden m-1">
+            <div className="md:col-span-3 rounded-md border">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

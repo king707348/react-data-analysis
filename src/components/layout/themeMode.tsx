@@ -11,7 +11,7 @@ export function ColorMode() {
     }
 
     return (
-        <div onClick={changeTheme} className="py-2">
+        <div onClick={changeTheme} className="py-2 cursor-pointer">
             {theme === "dark" ? <Moon /> : <Sun />}
         </div>
     )

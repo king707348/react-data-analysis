@@ -1,36 +1,19 @@
 "use client";
 
-import React, {useState, useEffect } from "react";
 import ReactECharts from 'echarts-for-react';
-import { useTheme } from 'next-themes';
 
 import { BloodPressure, DayEvent, InfoData } from "@/types/index";
 
-const fetchData = async (setData: React.Dispatch<React.SetStateAction<InfoData[]>>) => {
-    try {
-        const response = await fetch('/api/info')
-        const jsonData = await response.json()
-
-        setData(jsonData)
-        console.log(jsonData[0])
-    }catch (err) {
-        console.error("err", err)
-    }
-}
-
-export default function BloodPressureChart() {
-    const { resolvedTheme } = useTheme()
-
-    const themeColor = resolvedTheme === 'dark' ? '#ffffff' : '#235894'
-    const [data, setData] = useState<InfoData[]>([])
+export default function BloodPressureChart(
+    {useThemeColor, useData}:
+    {useThemeColor:string, useData:InfoData[]}
+) {
+    const data = useData
+    const ThemeColor = useThemeColor
     let admin_title: string = "ADMIN BLOOD PRESSURE CHART"
     let xAxis_data: string[] = []
     let series_data_Systolic: number[] = []
     let series_data_Diastolic: number[] = []
-
-    useEffect(() => {
-        fetchData(setData)
-    }, [])
 
     if(data.length > 0){
         admin_title = `${data[0].name.toLocaleUpperCase()}'S BLOOD PRESSURE CHART`
@@ -48,7 +31,7 @@ export default function BloodPressureChart() {
             text: admin_title,
             left: 'center',
             textStyle: {
-                color: themeColor
+                color: ThemeColor
             }
         },
         tooltip: {
@@ -57,20 +40,20 @@ export default function BloodPressureChart() {
         legend: {
             data: ['Systolic', 'Diastolic'],
             textStyle: {
-                color: themeColor
+                color: ThemeColor
             }
         },
         xAxis: {
             type: 'category',
             data: xAxis_data,
             axisLabel: {
-                color: themeColor
+                color: ThemeColor
             }
         },
         yAxis: {
             type: 'value',
             axisLabel: {
-                color: themeColor
+                color: ThemeColor
             }
         },
         series: [
