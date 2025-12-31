@@ -90,4 +90,4 @@ FITBIT_REDIRECT_URI=http://localhost:3003/api/fitbit/callback
 
 ## 圖片展示 / Image Display
 
-![圖片2](/圖片%202.png)
+![圖片2](/public/圖片%202.png)
