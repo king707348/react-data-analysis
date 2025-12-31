@@ -1,6 +1,6 @@
 {
     "title": "Data Analysis 儀表板",
-    "welcomeMessage": "Welcome to the Data Analysis Dashboard. Here you can visualize and analyze your data effectively.",
+    "welcomeMessage": "歡迎來到{name}儀表板",
     "Route": {
         "Dashboard": "儀表板",
         "Activity": "活動",

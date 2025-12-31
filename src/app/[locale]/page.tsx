@@ -1,9 +1,18 @@
-import type { Metadata } from 'next'
-import Layout from "./dashboard/page"
+import Layout from "../../components/dashboard/page"
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'My Page Title',
-  description: "this is page"
+type Props = {
+  params: Promise<{ locale:string }>
+}
+
+export async function generateMetadata({params}: Props) {
+  const { locale } = await params
+  const t = await getTranslations({locale})
+
+  return {
+    title: t("title"),
+    description: t("welcomeMessage", {name:"Evan"})
+  }
 }
 
 export default function Home() {
