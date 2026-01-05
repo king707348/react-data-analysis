@@ -1,8 +1,6 @@
 # react-data-analysis
 
-雙語簡介：這個專案示範一個使用 Next.js + React（TypeScript）的資料儀表板範例，包含 Stock API proxy（mock）、幾個 demo charts（使用 ECharts）與 MobX 範例。
-
-Brief (EN): A small Next.js dashboard demo with mock stock data API, MobX store setup and ECharts visualizations.
+這個專案示範一個使用 Next.js + React（TypeScript）的資料儀表板範例，包含 Stock API proxy（mock）、幾個 demo charts（使用 ECharts）與 MobX 範例。
 
 ---
 
